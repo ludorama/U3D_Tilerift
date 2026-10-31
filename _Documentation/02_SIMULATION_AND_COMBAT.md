@@ -13,7 +13,7 @@
 
 An attacker is the moving unit facing into the defender cell. Determine whether approach hits defender front, side or back from defender orientation, then grant attacker +0, +1 or +2 CB. Both hero-attacks-enemy and enemy-attacks-hero use identical positional logic. No diagonal attacks in MVP.
 
-Provisional approved-example-compatible formula:
+Confirmed combat formula (owner approved 2026-10-31):
 
 ```
 effectiveHeroCB = heroCB + (heroIsAttacker ? facingBonus : 0)
@@ -22,7 +22,7 @@ requiredHPCost = max(0, effectiveEnemyCB - effectiveHeroCB + 1)
 survives = (heroBaseHP + heroArmorHP - requiredHPCost) >= 1
 ```
 
-Hero CB2 / 5 HP vs enemy CB4: frontal costs 3 HP (2 remain); attacking side costs 2; back costs 1. Enemy approaches hero from side: enemy CB5 and cost4; from back enemy CB6 and cost5, killing 5-HP hero. At CB parity, cost 1 under current formula. Request signoff on formula in `00_DECISION_REGISTER.md` before combat production acceptance.
+Hero CB2 / 5 HP vs enemy CB4: frontal costs 3 HP (2 remain); attacking side costs 2; back costs 1. Enemy approaches hero from side: enemy CB5 and cost4; from back enemy CB6 and cost5, killing 5-HP hero. At CB parity, cost 1 under this formula. The formula is recorded as owner-approved in 00_DECISION_REGISTER.md.
 
 Spend cost from armor first, then base HP. Base HP remains damaged after armor swaps. New armor sets current armor HP to new item's value, not cumulative, not restoration. Defeat occurs on total HP <=0, even if monster otherwise slain. Standard 1-HP enemy defeated when hero remains alive; boss damage/retreat are separate configurable contract.
 

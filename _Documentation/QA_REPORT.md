@@ -28,3 +28,15 @@
 - Fixed the initial Phase 1 compile errors: test assembly references now include simulation and tile assemblies, and the camera controller aliases `UnityEngine.Camera` to avoid the `Tilerift.Presentation.Camera` namespace collision.
 
 - The smoke scene is intentionally a presentation harness; hero movement visualization and production tile prefabs are still future work.
+
+## Phase 2 — inventory and combat foundation
+
+### Automated evidence
+
+- Added FIFO tile inventory with configured starting hand, maximum hand size, queue preview, hidden overflow count, and retrieval-at-tail behavior.
+- Added one-use and persistent tile state coverage, armor-first combat resolution, front/side/back approach bonuses, stationary enemy configuration, armor replacement, defeat state, and capped combat presentation duration.
+- Unity Test Runner executed in the licensed Unity Editor session: 20 tests passed, 0 failed.
+
+### Acceptance note
+
+- The combat resolver is isolated behind CombatResolver and follows the owner-approved formula in _Documentation/02_SIMULATION_AND_COMBAT.md.

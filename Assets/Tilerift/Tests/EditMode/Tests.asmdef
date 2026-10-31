@@ -1,7 +1,7 @@
 {
   "name": "Tilerift.Tests.EditMode",
   "rootNamespace": "Tilerift.Tests.EditMode",
-  "references": ["Tilerift.Core", "Tilerift.Simulation", "Tilerift.Gameplay.Tiles", "Unity.TestRunner", "UnityEngine.TestRunner"],
+  "references": ["Tilerift.Core", "Tilerift.Simulation", "Tilerift.Gameplay.Tiles", "Tilerift.Gameplay.Inventory", "Tilerift.Gameplay.Combat", "Unity.TestRunner", "UnityEngine.TestRunner"],
   "includePlatforms": ["Editor"],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

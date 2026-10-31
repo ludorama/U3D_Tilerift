@@ -19,6 +19,7 @@ Latest explicit user decision > earlier user decision > this documentation's exp
 - Enemy order: stationary, rotating, patrol, chase, bosses. All use one grid simulation. Player action tiles are distinct from map-embedded enemies, pickups, traps, gates, switches and environment.
 - Travel: timed start-to-finish puzzle; Explore: finite bounded handcrafted or procedural map with objective; Survival: endless expanding procedural map.
 - Ads only between runs every configurable X matches; never during live play. Final policy pending.
+- **Combat formula owner approval (2026-10-31):** Approved the documented exact HP-cost formula, including CB-equality cost 1 and defeat when surviving HP reaches 0 or less. Affected implementation: CombatResolver; verification: 20/20 EditMode tests passed.
 
 ## PROVISIONAL / TEST VALUES
 
@@ -27,13 +28,12 @@ Latest explicit user decision > earlier user decision > this documentation's exp
 
 ## OPEN — explicit owner signoff before feature's production implementation
 
-1. **Combat exact HP cost at CB equality.** User example: Hero CB2, HP5 vs Enemy CB4 front costs 3 HP, implying cost `max(0, EnemyEffectiveCB - HeroEffectiveCB + 1)`. However earlier prose says CB + HP beats enemy, which agrees with that example but the exact death-on-zero boundary needs tests. Use example and formula as provisional pending signoff.
-2. Collision of moving actors attempting to swap two cells or meeting head-on in one simulation tick: hero-as-attacker priority is confirmed for same-cell simultaneous contention; exact swap resolution should be validated in phase 2.
-3. What does an enemy win mean if hero has enough HP to absorb cost? Current rule: hero always defeats standard 1-HP enemy if HP remains >=1 after spending cost, including when enemy initiated; test feedback/signoff.
-4. Tile destination can be revisited while an unactivated tile sits there; lock tile only on its own first activation. Retrieval timing when queue auto-fills a free hand slot should follow FIFO consistently.
-5. Is a tile placed on the board removed from hand immediately (assume yes), and can the player discard tiles without placing them (OPEN)? Queue exploit balancing deferred.
-6. Currency earning/spending, scoring, star thresholds, initial tile catalog, level objectives, explicit movement-pause interpretation of busy combat, game timer loss conditions, and bosses' retreat locations need content design and playtest.
-7. Account model, platform services, backend vendor, analytics provider, ad network, purchase SKUs, consent/age policy, liveops and release regions need owner-approved service selection. No fabricated decisions.
-8. Unity version, render pipeline, art direction, localization target languages, revenue model and store policy must be decided with owner.
+1. Collision of moving actors attempting to swap two cells or meeting head-on in one simulation tick: hero-as-attacker priority is confirmed for same-cell simultaneous contention; exact swap resolution should be validated in phase 2.
+2. What does an enemy win mean if hero has enough HP to absorb cost? Current rule: hero always defeats standard 1-HP enemy if hero remains alive after spending cost; test feedback/signoff.
+3. Tile destination can be revisited while an unactivated tile sits there; lock tile only on its own first activation. Retrieval timing when queue auto-fills a free hand slot should follow FIFO consistently.
+4. Is a tile placed on the board removed from hand immediately (assume yes), and can the player discard tiles without placing them (OPEN)? Queue exploit balancing deferred.
+5. Currency earning/spending, scoring, star thresholds, initial tile catalog, level objectives, explicit movement-pause interpretation of busy combat, game timer loss conditions, and bosses' retreat locations need content design and playtest.
+6. Account model, platform services, backend vendor, analytics provider, ad network, purchase SKUs, consent/age policy, liveops and release regions need owner-approved service selection. No fabricated decisions.
+7. Unity version, render pipeline, art direction, localization target languages, revenue model and store policy must be decided with owner.
 
 If a question blocks a phase, implement a narrow mock behind an interface only with lead's logged approval; never silently implement the entire undefined feature.

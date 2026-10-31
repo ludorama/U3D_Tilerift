@@ -1,0 +1,15 @@
+{
+  "name": "Tilerift.Gameplay.Inventory",
+  "rootNamespace": "Tilerift.Gameplay.Inventory",
+  "references": ["Tilerift.Core", "Tilerift.Gameplay.Tiles"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "ignoreMissingReferences": false
+}

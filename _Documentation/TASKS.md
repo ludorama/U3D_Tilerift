@@ -24,9 +24,21 @@
 | Explicit exclusions | Scene wiring/smoke presentation, combat, inventory queue, procedural generation, and service integrations. |
 | Status | Core plus smoke wiring complete — source compile errors fixed, 8/8 Unity EditMode tests pass, and Sandbox Play Mode smoke check completed. |
 
+## TIL-002 — Phase 2 inventory and combat foundation
+
+| Field | Value |
+|---|---|
+| Phase | 2 — inventory, tile variants, enemies, and combat |
+| Specialist | Gameplay / Systems |
+| Spec refs | `02`, `05`, `09`, `10` |
+| Scope | FIFO inventory and queue preview, one-use/persistent tile lifecycle coverage, stationary enemy configuration, positional combat resolution, armor-first damage, armor replacement, defeat state, and short combat presentation timing. |
+| Acceptance | 20/20 Unity EditMode tests pass; implementation follows the owner-approved combat formula. |
+| Explicit exclusions | Production UI/VFX presentation, procedural generation, and service integrations. |
+| Status | Phase 2 implementation accepted; production presentation and later content remain future work. |
+
 ### Owner-blocking decisions
 
-- Combat formula signoff remains required before Phase 2 acceptance.
+- Combat formula signoff completed on 2026-10-31. Remaining open decisions are tracked in 00_DECISION_REGISTER.md.
 - Camera projection, economy, timer-loss rules, and service providers remain OPEN.
 
 ### Changed files
