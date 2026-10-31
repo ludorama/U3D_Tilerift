@@ -1,0 +1,33 @@
+{
+  "name": "TileriftInputActions",
+  "maps": [
+    {
+      "name": "Gameplay",
+      "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a001",
+      "actions": [
+        { "name": "Point", "type": "Value", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a002", "expectedControlType": "Vector2" },
+        { "name": "Press", "type": "Button", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a003", "expectedControlType": "Button" },
+        { "name": "Navigate", "type": "Value", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a004", "expectedControlType": "Vector2" },
+        { "name": "Submit", "type": "Button", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a005", "expectedControlType": "Button" },
+        { "name": "Cancel", "type": "Button", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a006", "expectedControlType": "Button" }
+      ],
+      "bindings": [
+        { "name": "Touch position", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a010", "path": "<Touchscreen>/primaryTouch/position", "action": "Point", "isComposite": false },
+        { "name": "Mouse position", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a011", "path": "<Mouse>/position", "action": "Point", "isComposite": false },
+        { "name": "Touch press", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a012", "path": "<Touchscreen>/primaryTouch/press", "action": "Press", "isComposite": false },
+        { "name": "Mouse press", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a013", "path": "<Mouse>/leftButton", "action": "Press", "isComposite": false },
+        { "name": "Gamepad navigate", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a014", "path": "<Gamepad>/leftStick", "action": "Navigate", "isComposite": false },
+        { "name": "Keyboard navigate", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a015", "path": "2DVector", "action": "Navigate", "isComposite": true },
+        { "name": "Keyboard navigate up", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a016", "path": "<Keyboard>/w", "action": "Navigate", "isPartOfComposite": true, "name": "up" },
+        { "name": "Keyboard navigate down", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a017", "path": "<Keyboard>/s", "action": "Navigate", "isPartOfComposite": true, "name": "down" },
+        { "name": "Keyboard navigate left", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a018", "path": "<Keyboard>/a", "action": "Navigate", "isPartOfComposite": true, "name": "left" },
+        { "name": "Keyboard navigate right", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a019", "path": "<Keyboard>/d", "action": "Navigate", "isPartOfComposite": true, "name": "right" },
+        { "name": "Gamepad submit", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a020", "path": "<Gamepad>/buttonSouth", "action": "Submit", "isComposite": false },
+        { "name": "Keyboard submit", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a021", "path": "<Keyboard>/enter", "action": "Submit", "isComposite": false },
+        { "name": "Gamepad cancel", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a022", "path": "<Gamepad>/buttonEast", "action": "Cancel", "isComposite": false },
+        { "name": "Keyboard cancel", "id": "8c4b2f8b-4c0a-4b8a-9b8e-6d1df8f8a023", "path": "<Keyboard>/escape", "action": "Cancel", "isComposite": false }
+      ]
+    }
+  ],
+  "controlSchemes": []
+}

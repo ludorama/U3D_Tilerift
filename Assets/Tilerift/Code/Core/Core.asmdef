@@ -1,0 +1,15 @@
+{
+  "name": "Tilerift.Core",
+  "rootNamespace": "Tilerift",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": true,
+  "ignoreMissingReferences": false,
+  "allowUnsafeCode": false
+}
