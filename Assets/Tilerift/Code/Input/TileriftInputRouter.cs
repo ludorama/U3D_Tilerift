@@ -23,6 +23,7 @@ namespace Tilerift.Input
 
         public Vector2 Point => pointAction?.ReadValue<Vector2>() ?? Vector2.zero;
         public Vector2 Navigate => navigateAction?.ReadValue<Vector2>() ?? Vector2.zero;
+        public bool IsPressed { get; private set; }
 
         private void Awake()
         {
@@ -62,8 +63,17 @@ namespace Tilerift.Input
         }
 
         private void OnPoint(InputAction.CallbackContext context) => Pointed?.Invoke(context.ReadValue<Vector2>());
-        private void OnPressStarted(InputAction.CallbackContext context) => Pressed?.Invoke();
-        private void OnPressCanceled(InputAction.CallbackContext context) => Released?.Invoke();
+        private void OnPressStarted(InputAction.CallbackContext context)
+        {
+            IsPressed = true;
+            Pressed?.Invoke();
+        }
+
+        private void OnPressCanceled(InputAction.CallbackContext context)
+        {
+            IsPressed = false;
+            Released?.Invoke();
+        }
         private void OnNavigate(InputAction.CallbackContext context) => Navigated?.Invoke(context.ReadValue<Vector2>());
         private void OnSubmit(InputAction.CallbackContext context) => Submitted?.Invoke();
         private void OnCancel(InputAction.CallbackContext context) => Cancelled?.Invoke();

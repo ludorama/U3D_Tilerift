@@ -1,0 +1,15 @@
+{
+  "name": "Tilerift.Presentation.Camera",
+  "rootNamespace": "Tilerift.Presentation.Camera",
+  "references": ["Tilerift.Input", "Tilerift.Gameplay.Configs"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "ignoreMissingReferences": false
+}
