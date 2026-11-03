@@ -1,0 +1,15 @@
+{
+  "name": "Tilerift.Gameplay.Travel",
+  "rootNamespace": "Tilerift.Gameplay.Travel",
+  "references": ["Tilerift.Core", "Tilerift.Simulation", "Tilerift.Input"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "ignoreMissingReferences": false
+}

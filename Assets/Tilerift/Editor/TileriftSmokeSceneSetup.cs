@@ -3,6 +3,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Tilerift.Gameplay.Configs;
+using Tilerift.Gameplay.Travel;
 using Tilerift.Input;
 using Tilerift.Presentation.Camera;
 
@@ -13,6 +14,7 @@ namespace Tilerift.Editor
         private const string ScenePath = "Assets/Scenes/Sandbox.unity";
         private const string InputActionsPath = "Assets/Tilerift/Code/Input/TileriftInputActions.inputactions";
         private const string CameraConfigPath = "Assets/Tilerift/Code/Gameplay/Configs/DefaultCameraConfig.asset";
+        private const string TravelLevelPath = "Assets/Tilerift/Code/Gameplay/Travel/TravelLevel01.asset";
 
         [MenuItem("Tilerift/Setup Phase 1 Smoke Scene")]
         public static void Setup()
@@ -80,6 +82,30 @@ namespace Tilerift.Editor
             SetProperty(controller, "heroTarget", hero.transform);
             SetProperty(controller, "targetCamera", camera.GetComponent<Camera>());
 
+            var travelLevel = AssetDatabase.LoadAssetAtPath<TravelLevelConfig>(TravelLevelPath);
+            if (travelLevel == null)
+            {
+                travelLevel = ScriptableObject.CreateInstance<TravelLevelConfig>();
+                travelLevel.levelId = "travel_sandbox_01";
+                travelLevel.timeLimitSeconds = 30f;
+                travelLevel.startingDelaySeconds = 3f;
+                travelLevel.cellTravelSeconds = 1f;
+                travelLevel.targetCoins = 1;
+                travelLevel.targetJewels = 1;
+                travelLevel.coinCells.Add(new TravelGridCell { x = 0, y = 1 });
+                travelLevel.jewelCells.Add(new TravelGridCell { x = 0, y = 2 });
+                for (var y = 0; y <= 2; y++)
+                    travelLevel.walkableCells.Add(new TravelGridCell { x = 0, y = y });
+                AssetDatabase.CreateAsset(travelLevel, TravelLevelPath);
+                AssetDatabase.SaveAssets();
+            }
+
+            var travelObject = GameObject.Find("Travel Run") ?? new GameObject("Travel Run");
+            var travelController = travelObject.GetComponent<TravelRunController>() ?? travelObject.AddComponent<TravelRunController>();
+            SetProperty(travelController, "level", travelLevel);
+            SetProperty(travelController, "inputRouter", router);
+            SetProperty(travelController, "heroVisual", hero.transform);
+
             var cameraComponent = camera.GetComponent<Camera>();
             cameraComponent.transform.position = new Vector3(0f, 7f, -7f);
             cameraComponent.transform.rotation = Quaternion.Euler(42f, 0f, 0f);
@@ -89,8 +115,11 @@ namespace Tilerift.Editor
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
             AssetDatabase.SaveAssets();
-            Debug.Log("Tilerift Phase 1 smoke scene setup complete.");
+            Debug.Log("Tilerift Phase 3 Travel slice scene setup complete.");
         }
+
+        [MenuItem("Tilerift/Setup Phase 3 Travel Slice")]
+        public static void SetupPhase3TravelSlice() => Setup();
 
         private static void SetProperty(Object target, string propertyName, Object value)
         {

@@ -41,6 +41,18 @@
 - Combat formula signoff completed on 2026-10-31. Remaining open decisions are tracked in 00_DECISION_REGISTER.md.
 - Camera projection, economy, timer-loss rules, and service providers remain OPEN.
 
+## TIL-003 — Phase 3 first complete Travel slice
+
+| Field | Value |
+|---|---|
+| Phase | 3 — first complete Travel slice |
+| Specialist | Gameplay / UI |
+| Spec refs | `01`, `03`, `04`, `09`, `10`, `11` |
+| Scope | Authored Travel level asset, bounded route, countdown and run timer, start/exit objectives, coins/jewels, hazards, success/failure/retry state, simple HUD, and input-driven hero route control. |
+| Acceptance | Deterministic EditMode coverage added for countdown, timer expiry, objectives, hazards, retry, and terminal results; Unity refresh and Play Mode smoke verification remain to be run. |
+| Explicit exclusions | Production art/audio, full results screen polish, persistence services, Explore generation, and monetization. |
+| Status | Implementation in place; Unity verification pending. |
+
 ### Changed files
 
 - `Assets/Tilerift/Code/Core/Grid/*`

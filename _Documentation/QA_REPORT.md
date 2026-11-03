@@ -40,3 +40,16 @@
 ### Acceptance note
 
 - The combat resolver is isolated behind CombatResolver and follows the owner-approved formula in _Documentation/02_SIMULATION_AND_COMBAT.md.
+
+## Phase 3 — first complete Travel slice
+
+### Implementation evidence
+
+- Added a designer-authored Travel level asset schema with bounded walkable cells, start/exit, time limit, collectible locations, objectives, and hazards.
+- Added deterministic run state for countdown, live timer, objective-gated exit, success, failure reasons, and retry.
+- Added a scene controller that connects the Travel run to the New Input System router, hero movement simulation, authored collectibles/hazards, and a readable prototype HUD.
+- Added 8 EditMode tests covering countdown, timer expiry, objective gating, hazard failure, retry reset, immediate exits, and timer behavior.
+
+### Verification status
+
+- Unity compilation and Play Mode smoke verification are pending the next licensed editor refresh. The headless Unity path is currently unavailable because batch mode cannot connect to the Unity Personal licensing client.

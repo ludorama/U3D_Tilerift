@@ -17,3 +17,9 @@ Deterministic movement, countdown, pause/block states, placement revalidation, t
 **Status:** Accepted.
 
 FIFO inventory, queue preview/overflow tracking, one-use and persistent tile behavior coverage, stationary enemy configuration, positional combat, armor-first damage, armor replacement, defeat state, and presentation duration limits are implemented. Unity Test Runner evidence: 20 passed, 0 failed. The resolver follows the owner-approved formula documented in _Documentation/02_SIMULATION_AND_COMBAT.md.
+
+## Phase 3 — first complete Travel slice
+
+**Status:** Implementation in place; verification pending.
+
+The authored Travel level schema, countdown/timer run state, objective-gated start/exit flow, collectible objectives, hazard failure, retry reset, input-connected movement controller, and prototype HUD are implemented. Eight deterministic EditMode tests were added. Unity refresh, compilation, and Play Mode launch-to-results verification remain before signoff.
